@@ -10,11 +10,10 @@ const EventList=(props)=>{
         </div>
         )
     }
-
     return(
         <ul>
             {props.events.map(event=>(
-                <SingleEvent 
+                <SingleEvent
                 key={event.id}
                 id={event.id}
                 image={event.image}
@@ -27,11 +26,6 @@ const EventList=(props)=>{
             ))}
         </ul>
     );
-
-
-
-
-
 }
 
 export default EventList

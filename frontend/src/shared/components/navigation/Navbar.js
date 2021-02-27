@@ -8,39 +8,57 @@ import PropTypes from 'prop-types'
 
 export default class Navbar extends Component {
 
-    constructor(props){
+constructor(props){
         super(props);
         this.state={
-
+            eventType:'verified'
         }
     }
-    handleChange = e =>{
-        console.log(1)
-        return (<Redirect to="/e1/events"/>);
-    };
 
 render() {
+    // const nav='';
+
+    // if(window.location.pathname === '/' || window.location.pathname ==='/:e/events'){
+
+    //     this.nav ="<ul>\
+    //             <li>\
+    //                 <NavLink to='/auth'>Login</NavLink>\
+    //             </li>\
+    //             <li>\
+    //                 <NavLink to='/'><h1>LOGO</h1></NavLink>\
+    //             </li>\
+    //             <li>\
+    //                 <NavLink to='/makeevent'>Make Events</NavLink>\
+    //             </li>\
+    //         </ul>";
+    // }
+    // else{
+        
+    //     this.nav ="<ul>\
+    //             <li>\
+    //                 <NavLink to='/auth'>Login</NavLink>\
+    //             </li>\
+    //             <li>\
+    //                 <NavLink to='/'><h1>LOGO</h1></NavLink>\
+    //             </li>\
+    //             <li>\
+    //                 <NavLink to='/makeevent'>Make Events</NavLink>\
+    //             </li>\
+    //         </ul>";
+    // }
+
         return (
             <ul>
-            <li>
-                <NavLink to='/' exact>All events</NavLink>
-            </li>
-            <li>
-                <NavLink to='/verified'>Verified</NavLink>
-            </li>
-            <li>
-                <NavLink to='/unverified'>unverified</NavLink>
-            </li>
-            <li>
-                <NavLink to='/auth'>login</NavLink>
-            </li>
-
-            <li>
-                <input type="radio" id="other" name="gender" value="other" onChange={this.handleChange}/> All events
-                <input type="radio" id="other" name="gender" value="other" onChange={this.handleChange}/> verified
-                <input type="radio" id="other" name="gender" value="other" onChange={this.handleChange}/> unverified
-            </li>
-        </ul>
+                <li>
+                    <NavLink to='/auth'>Login</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/'><h1>LOGO</h1></NavLink>
+                </li>
+                <li>
+                    <NavLink to='/makeevent'>Make Events</NavLink>
+                </li>
+            </ul>
         )
     }
 }

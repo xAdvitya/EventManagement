@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../../shared/components/navigation/Navbar';
 // import { useParams } from 'react-router-dom';
 import EventDetails from '../components/EventDetails';
 
@@ -31,7 +32,10 @@ const Details = () => {
     var loadedPlaces = DUMMY_EVENTS.filter(event =>event.id === eventId);
 
     return (
-        <EventDetails event={loadedPlaces[0]}/>
+        <React.Fragment>
+                <Navbar/>
+                <EventDetails event={loadedPlaces[0]}/>
+        </React.Fragment>
     );
 }
 
