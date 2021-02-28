@@ -8,9 +8,8 @@ import {
 import Navbar from './shared/components/navigation/Navbar';
 import Event from './events/pages/Event'
 import Details from './events/pages/Details';
-
 import MakeEvents from './events/pages/MakeEvents';
-
+ 
 
 function App() {
   return (
