@@ -1,4 +1,30 @@
-.xxx{
-    background-color: aqua;
-    width: 300px;
+.filter {
+    position: absolute;
+    top: 96px;
+    left: 55%;
+}
+.filter select {
+    border-radius: 3px;
+    border: none;
+    background: #3C403D;
+    color: #DADED4;
+    font-family: cursive;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-left: 30%;
+    text-align: center;
+}
+.filter select:hover {
+    background-color: #616864;
+}
+
+.xxx {
+    grid-column: 1/-1;
+    width: 60%;
+    background-color: #A3BCB6;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
 }

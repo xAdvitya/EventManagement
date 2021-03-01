@@ -1,5 +1,6 @@
 import React from 'react'
 import SingleEvent from './SingleEvent';
+import './style.css'
 
 const EventList=(props)=>{
 
