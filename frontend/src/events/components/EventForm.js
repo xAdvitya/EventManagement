@@ -1,46 +1,47 @@
 import React from 'react'
+import './style.css'
 
 const EventForm = (props) => {
     return (
-        <div>
-            <form>
+        <div class="registration_form">
+            <form >
                 
                 <div>
-                <label>
+                <label for="name-id">
                     name
                 </label>
-                <input type="text" name="name"/>
+                <input type="text" name="name" id="name-id" placeholder="Enter your name"/>
                 </div>
 
                 <div>
-                <label>
+                <label for="email-id">
                     email
                 </label>
-                <input type="email" name="email"/>
+                <input type="email" name="email" id="email-id" placeholder="Enter your email"/>
                 </div>
 
                 <div>
-                <label>
+                <label for="regno-id">
                     Registeration number
                 </label>
-                <input type="number" name="regno"/>
+                <input type="number" name="regno" id="regno-id" placeholder="Registration number"/>
                 </div>
 
                 <div>
-                <label>
+                <label for="program-id">
                     Program
                 </label>
-                <input type="text" name="program"/>
+                <input type="text" name="program" id="program-id" placeholder="program"/>
                 </div>
 
                 <div>
-                <label>
+                <label for="semester-id">
                     current semester
                 </label>
-                <input type="text" name="semester"/>
+                <input type="text" name="semester" id="semester-id" placeholder="semester number"/>
                 </div>
                 
-                <button type="submit">submit</button>
+                <button type="submit" class="button-form">SUBMIT</button>
             </form>
         </div>
     )

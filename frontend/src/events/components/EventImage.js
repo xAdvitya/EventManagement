@@ -1,11 +1,10 @@
 import React from 'react'
+import './style.css'
 
 const EventImage = (props) => {
     return (
-        <div>
+        <div class="event_pictures">
             <img src={props.event.images[0]}/>
-            <img src={props.event.images[1]}/>
-            <img src={props.event.images[2]}/>
         </div>
     )
 }
