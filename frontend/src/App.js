@@ -9,7 +9,8 @@ import {
 import Navbar from './shared/components/navigation/Navbar';
 import Event from './events/pages/Event'
 import Details from './events/pages/Details';
-import MakeEvents from './events/pages/MakeEvents';
+import MakeEvents from './manage event/pages/MakeEvents';
+import PlanEvent from './manage event/components/PlanEvent';
  
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/' exact>
            <Event/>
           </Route>
+
           <Route path="/:eventId/events" exact>
             <Details/>
           </Route>
@@ -33,7 +35,11 @@ function App() {
            <MakeEvents/>
           </Route>
 
-          <Redirect to="/"/>
+          <Route path="/makeevent/planevent" exact>
+           <PlanEvent/>
+          </Route>
+
+          {/* <Redirect to="/"/> */}
         </Switch>
       </main>
       </Router>

@@ -4,7 +4,7 @@ import './SideBar.css'
 const SideBar = (props) => {
     return (
     <div className="sidenav">
-        <a href="#">Plan event</a>
+        <a href="/makeevent/planevent">Plan event</a>
         <a href="#">All events</a>
         <a href="#">comments</a>
         <a href="#">Stats</a>
