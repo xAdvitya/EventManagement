@@ -31,6 +31,9 @@ li button:hover {
     color: #3C403D;
     letter-spacing: -2px;
 }
+a { 
+    text-decoration: none;
+}
 
 .make_events {
     grid-area:  make-event;

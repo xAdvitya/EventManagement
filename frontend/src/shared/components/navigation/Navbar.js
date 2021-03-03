@@ -7,9 +7,10 @@ const navbarManage = () => {
     return (
         <div>
             <ul>
-            
             <li className="logo">
-                EVENT MANAGEMENT
+                <a href="/">
+                 EVENT MANAGEMENT
+                 </a>
              </li>
              
             </ul>
@@ -26,7 +27,9 @@ const navbarDefault = () => {
                 </li >
                 
                     <li className="logo">
-                        EVENT MANAGEMENT
+                        <a href="/">
+                            EVENT MANAGEMENT
+                        </a>
                     </li>
                
                 <li className="make_events">
