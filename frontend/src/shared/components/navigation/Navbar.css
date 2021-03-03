@@ -24,13 +24,14 @@ li button:hover {
     background-color: #616864;
 }
 .logo {
-    grid-area: logo;
     justify-self: center;
+    grid-area: logo;
     font-size: 50px;
     font-weight: 900;
     color: #3C403D;
     letter-spacing: -2px;
 }
+
 .make_events {
     grid-area:  make-event;
     margin-top: 10px;
