@@ -8,7 +8,7 @@ import {
 import Navbar from './shared/components/navigation/Navbar';
 import Event from './events/pages/Event'
 import Details from './events/pages/Details';
-import MakeEvents from './manage event/pages/MakeEvents';
+import MakeEvents from './manage event/pages/ManageEvents';
 import PlanEvent from './manage event/components/PlanEvent';
  
 
@@ -30,11 +30,11 @@ function App() {
             <Details/>
           </Route>
 
-          <Route path="/makeevent" exact>
+          <Route path="/manageevent/" >
            <MakeEvents/>
           </Route>
 
-          {/* <Redirect to="/"/> */}
+          <Redirect to="/"/>
         </Switch>
       </main>
       </Router>
