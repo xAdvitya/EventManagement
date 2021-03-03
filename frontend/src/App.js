@@ -1,4 +1,3 @@
-
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -33,10 +32,6 @@ function App() {
 
           <Route path="/makeevent" exact>
            <MakeEvents/>
-          </Route>
-
-          <Route path="/makeevent/planevent" exact>
-           <PlanEvent/>
           </Route>
 
           {/* <Redirect to="/"/> */}

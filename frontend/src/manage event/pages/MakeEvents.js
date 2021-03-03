@@ -11,12 +11,14 @@ import PlanEvent from '../components/PlanEvent';
 
 export class MakeEvents extends Component {
     render() {
+
         return (
             <React.Fragment>
             <Navbar/>
-            <div>
+            <div>   
                 <SideBar/>
             </div>
+            <PlanEvent/>
             </React.Fragment>
         )
     }
