@@ -10,6 +10,7 @@ import Event from './events/pages/Event'
 import Details from './events/pages/Details';
 import MakeEvents from './manage event/pages/ManageEvents';
 import PlanEvent from './manage event/components/PlanEvent';
+import Login from './shared/components/login/pages/Login';
  
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
 
           <Route path="/manageevent/" >
            <MakeEvents/>
+          </Route>
+          
+          <Route path="/auth" >
+            <Login/>
           </Route>
 
           <Redirect to="/"/>

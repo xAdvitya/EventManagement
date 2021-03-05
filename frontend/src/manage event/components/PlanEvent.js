@@ -1,14 +1,12 @@
 import React from 'react'
 import Navbar from '../../shared/components/navigation/Navbar'
+import InputForm from './InputForm'
 import SideBar from './SideBar'
 
 const PlanEvent = () => {
     return (
         <React.Fragment>
-       <div>
-            plan event
-        </div>
-
+            <InputForm/>
         </React.Fragment>
 
     )
