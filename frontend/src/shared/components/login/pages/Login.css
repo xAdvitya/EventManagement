@@ -49,10 +49,10 @@ h1 {
     border: 1px solid black;
 }
 .login [type="submit"] {
-    background-color: #39603D;
+    background-color: #3C403D;
     color: #ffffff;
     font-weight: 900;
 }
 .login [type="submit"]:hover {
-    background-color: #6c9670;
+    background-color: #616864;
 }
