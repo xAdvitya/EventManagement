@@ -4,11 +4,11 @@
   max-width: 250px;
   min-width: 100px;
   border-radius: 4px;
-  height: calc(85vh - 45px);
+  height: calc(90vh - 25px);
   display: grid;
   grid-template-rows: repeat(4, 35px);
   font-size: 1.6em;
-  box-shadow: 5px 2px 8px #888888;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.32);
 }
 
 .sidenav a {
