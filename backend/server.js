@@ -10,11 +10,16 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 // const connectDB = require('./config/db')
 const cors = require('cors')
+const app = express()
+
+const eventsRoutes = require('./routes/event-route')
+
+app.use('/api/events',eventsRoutes)
+
+
 
 dotenv.config({ path: './config/config.env' })
 
-
-const app = express()
 const PORT = process.env.PORT || 3000
 
 // Body parser
@@ -24,22 +29,6 @@ app.use(express.json())
 app.use(cors());
 
 
-app.get('/',(req,res)=>{
-    res.status(200).send("helooo")
-})
-
-app.get('/login',(req,res)=>{
-  const user = {
-    email:req.body.email,
-    familyName:req.body.familyName,
-    givenName:req.body.givenName,
-    googleId:req.body.googleId,
-    imageUrl:req.body.imageUrl,
-    name:req.body.name
-  }
-
-  console.log(`heloooooo ${user}`)
-})
 
 
 app.listen(
