@@ -9,6 +9,10 @@ router.get('/:eid',eventController.getPlaceById);
 
 router.get('/user/:uid',eventController.getPlaceByUserId);
 
+router.get('/:eid',eventController.deleteEvent);
+
 router.post('/',eventController.createEvent)
+
+// router.get('/',eventController.ex)
 
 module.exports = router;

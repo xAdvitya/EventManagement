@@ -38,8 +38,10 @@ const getPlaceById = (req,res,next)=>{
 const getPlaceByUserId = (req,res,next)=>{
 
     const userId = req.params.uid;
+    console.log(userId)
     const event = DUMMY_PLACES.find(p=>{
-    return p.creatorId == userId;
+        console.log(p.creatorId);
+    return p.joinCount === 'Bikaraj';
 });
 
 if(!event){
@@ -63,7 +65,20 @@ const createEvent = (req,res,next)=>{
     res.status(201).json({event:createdEvent})
 };
 
+const deleteEvent = (req,res,next)=>{
+    const eventId = req.params.id;
+    DUMMY_PLACES = DUMMY_PLACES.filter(e=> p.id !== eventId);
+    res.status(200).json({message:"event deleted"});
+}
+
+const ex = (req,res,next)=>{
+    console.log("hit")
+    res.status(200)
+    res.json({A:'1'})
+}
 
 exports.getPlaceById = getPlaceById;
 exports.getPlaceByUserId = getPlaceByUserId;
 exports.createEvent = createEvent;
+exports.deleteEvent = deleteEvent;
+exports.ex = ex;

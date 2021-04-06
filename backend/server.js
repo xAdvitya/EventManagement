@@ -15,37 +15,30 @@ const cors = require('cors')
 const app = express()
 
 app.use(bodyParser.json())
-
 const eventsRoutes = require('./routes/event-route')
 
-app.use((req,res,next)=>{
-  const error = new HttpError('could not find this route',404);
-  throw error;
-})
 app.use('/api/events',eventsRoutes)
 
-app.use((error,req,res,next,)=>{
-  if(res.headerSent){
+
+app.use((req, res, next) => {
+  const error = new HttpError('Could not find this route.', 404);
+  throw error;
+});
+
+app.use((error, req, res, next) => {
+  if (res.headerSent) {
     return next(error);
   }
-  res.status(error.code || 500).json({message:error.message || 'unknown error occured'});
-})
+  res.status(error.code || 500)
+  res.json({message: error.message || 'An unknown error occurred!'});
+});
 
+// dotenv.config({ path: './config/config.env' })
 
-dotenv.config({ path: './config/config.env' })
-
-const PORT = process.env.PORT || 3000
-
-// Body parser
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json()) 
-app.use(cors());
-
-
+const PORT = process.env.PORT || 5000
 
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 )
