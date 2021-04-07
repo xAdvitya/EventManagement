@@ -5,9 +5,9 @@ const router = express.Router();
 const eventController = require('../controllers/event-controller')
 
 
-router.get('/:eid',eventController.getPlaceById);
+router.get('/:eid',eventController.getEventsById);
 
-router.get('/user/:uid',eventController.getPlaceByUserId);
+router.get('/user/:uid',eventController.getEventsByUserId);
 
 router.get('/:eid',eventController.deleteEvent);
 

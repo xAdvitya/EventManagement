@@ -16,8 +16,10 @@ const app = express()
 
 app.use(bodyParser.json())
 const eventsRoutes = require('./routes/event-route')
+const usersRoutes = require('./routes/user-route')
 
 app.use('/api/events',eventsRoutes)
+app.use('/api/users',usersRoutes)
 
 
 app.use((req, res, next) => {
@@ -33,12 +35,25 @@ app.use((error, req, res, next) => {
   res.json({message: error.message || 'An unknown error occurred!'});
 });
 
-// dotenv.config({ path: './config/config.env' })
+dotenv.config({ path: './config/config.env' })
 
 const PORT = process.env.PORT || 5000
 
 
-app.listen(
-  PORT,
-  console.log(`Server running on port ${PORT}`)
-)
+mongoose
+  .connect(process.env.MONGO_URI,{
+    useUnifiedTopology:true,
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
+  .then(()=>{
+    app.listen(
+      PORT,
+      console.log(`Server running on port ${PORT}`)
+    )
+  })
+  .catch(err=>{
+    console.log(err)
+  })
+
+

@@ -1,6 +1,6 @@
 const HttpError = require('../models/http-error');
 const { v4: uuidv4 } = require('uuid');
-
+const Event = require('../models/event')
 const DUMMY_PLACES =[
     {
                 id:'e1',
@@ -23,45 +23,52 @@ const DUMMY_PLACES =[
         },
 ]
 
-const getPlaceById = (req,res,next)=>{
+const getEventsById = async (req,res,next)=>{
     const eventId = req.params.eid;
-    console.log(eventId)
-    const event = DUMMY_PLACES.find(e=>{
-        return e.id == eventId;
-    });
-    if(!event){
-        throw new HttpError('cannot find event for eid',404);
+    let event;
+    try{
+        event = await Event.findById(eventId);
+    } 
+    catch{
+        const error = new HttpError('something went wrong ,could not find place',500);
+        return next(error);
     }
-    res.json({event})
+    if(!event){
+        const error = new HttpError('could not find place for id',404);
+        return next(error);
+    }
+    res.json({event:event.toObject({getters:true})})
 };
 
-const getPlaceByUserId = (req,res,next)=>{
+const getEventsByUserId = (req,res,next)=>{
 
     const userId = req.params.uid;
-    console.log(userId)
-    const event = DUMMY_PLACES.find(p=>{
-        console.log(p.creatorId);
-    return p.joinCount === 'Bikaraj';
-});
+    const events = DUMMY_PLACES.filter(p=>{
+        return p.creatorId === userId;
+    });
 
-if(!event){
-    return next(new HttpError('cannot find event for uid',404));
-}
-
-res.json({place})
+    if(!events || events.length === 0){
+        throw next(new HttpError('cannot find events for uid',404));
+    }
+    res.json({events})
 };
 
-const createEvent = (req,res,next)=>{
+const createEvent = async (req,res,next)=>{
     const {id,name,description,creatorId,creatorName} = req.body;
-    const createdEvent={
-        id:uuidv4(),
+    const createdEvent=new Event({
         name,
         description,
-        creatorId,
-        creatorName,
-    };
-
-    DUMMY_PLACES.push(createdEvent);
+        image:'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
+        rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+        creatorName
+    })
+    try{
+    await createdEvent.save();
+    }
+    catch{
+        const error = new HttpError('creating place failed',500);
+        return next(error);
+    }
     res.status(201).json({event:createdEvent})
 };
 
@@ -77,8 +84,8 @@ const ex = (req,res,next)=>{
     res.json({A:'1'})
 }
 
-exports.getPlaceById = getPlaceById;
-exports.getPlaceByUserId = getPlaceByUserId;
+exports.getEventsById = getEventsById;
+exports.getEventsByUserId = getEventsByUserId;
 exports.createEvent = createEvent;
 exports.deleteEvent = deleteEvent;
 exports.ex = ex;
