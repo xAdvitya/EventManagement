@@ -34,6 +34,7 @@ const signup = async (req,res,next)=>{
         await createdUser.save();
         }
         catch(err){
+
             const error = new HttpError('sign up failed',500);
             return next(error);
         }  
@@ -55,7 +56,7 @@ const login = async (req,res,next)=>{
         return next(error);
     }
 
-    res.json({message:'logged in !'})
+    res.json({message:'logged in !',user:existingUser.toObject({getters:true})})
 }
 
 

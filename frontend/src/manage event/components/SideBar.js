@@ -1,14 +1,22 @@
 import React from 'react'
-import './SideBar.css'
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useHistory,
+    useLocation
+  } from "react-router-dom";
 
 const SideBar = (props) => {
     return (
     <div className="sidenav">
-        <a href="/manageevent/planevent">Plan event</a>
-        <a href="/manageevent/allevents">All events</a>
-        <a href="/manageevent/comments">comments</a>
-        <a href="/manageevent/stats">Stats</a>
-        <a href="#  " id="logout">Logout</a>
+        <Link to="/manageevent/planevent">Plan event</Link>
+        <Link to="/manageevent/allevents">All events</Link>
+        <Link to="/manageevent/comments">comments</Link>
+        <Link to="/manageevent/stats">Logout</Link>
     </div>)
 }
 

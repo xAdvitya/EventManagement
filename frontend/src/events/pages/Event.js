@@ -1,87 +1,159 @@
 import EventList from '../components/EventList'
-import React, { Component } from 'react'
+import React, { Component ,useEffect,useState} from 'react'
 import Selector from '../components/Selector';
 import Navbar from '../../shared/components/navigation/Navbar';
-export class Event extends Component {
 
-constructor(props) {
-    super(props);
-    this.state = {
-        eventType:'ALLEVENTS',
-    };
-    this.handelChange = this.handelChange.bind(this)
-}
+// export class Event extends Component {
 
-    DUMMY_EVENTS = [
-        {
-                id:'e1',
-                image:'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-                images:['https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
-                        rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+// constructor(props) {
+//     super(props);
+//     this.state = {
+//         eventType:'ALLEVENTS',
+//         events:{},
+//     };
+//     this.handelChange = this.handelChange.bind(this)
+// }
+//     handelChange = (e)=>{
+//         this.setState({eventType:e.target.value})
+//     }
 
-                'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
-                        rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+//     filteredEvents=[]
 
-                'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
-                        rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
-                ],
-                name:'diwali event',
-                verified:true,
-                joinCount:50,
-                creatorId:'u1',
-                creatorName:'Bikaraj',
-                description:'this event is organized by bikaraj to celebrate holi'
-        },
-        {
-                id:'e2',
-                image:'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-                 images:['https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
-                        rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+//     render() {
 
-                'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
-                        rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+//             const sendRequest = async () => {
+//               try {
+//                 const response = await fetch('http://localhost:5000/api/events');
+          
+//                 const responseData = await response.json();
+//                 this.setState({events:responseData})
 
-                'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib= \
-                        rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
-                ],
-                name:'holi event',
-                verified:false,
-                joinCount:40,
-                creatorId:'u2',
-                creatorName:'Akash',    
-                description:'this event is organized by Akash to celebrate holi'
-        },
-    ];
+//                 if (!response.ok) {
+//                   console.log("error")
+//                 }
+          
+//               } catch (err) {
+//                 console.log(err);
+//               }
+//             };
 
-    handelChange = (e)=>{
-        this.setState({eventType:e.target.value})
-    }
-    
-    render() {
+//             sendRequest();
         
-    const currentEventType = this.state.eventType;
-    const filteredEvents=''
+//     const currentEventType = this.state.eventType;
 
-    if(currentEventType === 'VERIFIED'){
-        this.filteredEvents = this.DUMMY_EVENTS.filter(event =>event.verified === true);
+
+//     if(currentEventType === 'VERIFIED'){
+//         this.filteredEvents = this.state.events.filter(event =>event.verified === true);
+//     }
+//     else if(currentEventType === 'UNVERIFIED'){
+//         this.filteredEvents = this.state.events.filter(event =>event.verified === false);
+//     }
+//     else{
+//         this.filteredEvents = this.state.events;
+//         console.log(this.state.events)
+//         console.log("hhiiiiiiiiiiii")
+//     }
+
+//     return (
+//         <React.Fragment>
+//             <Navbar/>
+//             <Selector handelChange={this.handelChange}/>
+//             <div>
+//             <EventList events={this.state.events} />
+//             </div>
+//         </React.Fragment>
+//         )
+//     }
+// }
+
+// export default Event
+
+// import React from 'react'
+
+const Event = () => {
+
+    const [eventType,seteventType] = useState('UNVERIFIED');
+    const [filteredEvents,setfilteredEvents] = useState();
+    const [events,setevents] = useState([]);
+    const [isLoading,setisLoading] = useState(true);
+
+    const handelChange = (e)=>{
+        console.log(e.target.value)
+        seteventType(e.target.value)
     }
-    else if(currentEventType === 'UNVERIFIED'){
-        this.filteredEvents = this.DUMMY_EVENTS.filter(event =>event.verified === false);
+
+    useEffect(() => {
+    const sendRequest = async () => {
+
+        if(isLoading === false){
+            if(eventType === 'VERIFIED'){
+                console.log("verified")
+                console.log(events['events'])
+                setevents(Array.isArray(events['events']) ? events['events'].filter(event =>event.verified === true) : []);
+            }
     }
-    else{
-        this.filteredEvents = this.DUMMY_EVENTS;
-    }
+        else if(eventType === 'UNVERIFIED'){
+            console.log('UNVERIFIED')
+            seteventType('UNVERIFIED')
+            console.log(events.filter(event =>event.verified === false))
+            setevents(events.filter(event =>event.verified === false));
+        }
+        else{
+            console.log(events)
+            // setfilteredEvents(events);
+        }
+
+        try {
+          const response = await fetch('http://localhost:5000/api/events');
+    
+          const responseData = await response.json();
+          
+          console.log(responseData)
+          console.log("responseData")
+
+          if (!response.ok) {
+            console.log("error")
+          }
+        console.log(responseData)
+        setevents(responseData)
+        setisLoading(false)
+    
+        } catch (err) {
+          console.log("errrrrrroooooooorrrrrrr");
+          console.log(err);
+        }
+      };
+      sendRequest();
+    },[]);
+  
+    // const currentEventType = this.state.eventType;
+//     if(isLoading === false){
+//         if(eventType === 'VERIFIED'){
+//             console.log("verified")
+//             console.log(events['events'])
+//             setevents(Array.isArray(events['events']) ? events['events'].filter(event =>event.verified === true) : []);
+//         }
+// }
+//     else if(eventType === 'UNVERIFIED'){
+//         events.filter(event =>event.verified === false);
+//     }
+//     else{
+//         console.log(events)
+//         // setfilteredEvents(events);
+//     }
+
 
     return (
         <React.Fragment>
             <Navbar/>
-            <Selector handelChange={this.handelChange}/>
-            <div>
-            <EventList events={this.filteredEvents} />
+           
+            {/* <Selector  handelChange={(e)=>handelChange(e)}/> */}
+            <div className="container">
+                {!isLoading &&
+            <EventList events={events} />}
             </div>
         </React.Fragment>
-        )
-    }
+    )
 }
 
 export default Event

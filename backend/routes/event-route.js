@@ -13,6 +13,6 @@ router.delete('/:eid',eventController.deleteEvent);
 
 router.post('/',eventController.createEvent)
 
-// router.get('/',eventController.ex)
+router.get('/',eventController.getEvents)
 
 module.exports = router;

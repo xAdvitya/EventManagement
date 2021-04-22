@@ -42,6 +42,24 @@ const getEventsByUserId = async (req,res,next)=>{
     res.json({events:events.map(e=>e.toObject({getters:true}))})
 };
 
+const getEvents = async(req,res,next)=>{
+    let events;
+    try{
+        events = await Event.find({})
+    }catch(err){
+        const error = new HttpError(
+            'finding places failed',500
+        );
+        return next(error);
+    }
+
+    if(!events || events.length === 0){
+        return next(new HttpError('cannot find events',404));
+    }
+
+    res.json({events:events.map(e=>e.toObject({getters:true}))})
+}
+
 const createEvent = async (req,res,next)=>{
     const {name,description,creator} = req.body;
     const createdEvent=new Event({
@@ -110,13 +128,9 @@ const deleteEvent = async (req,res,next)=>{
     res.status(200).json({message:'deleted place'})
 }
 
-const ex = (req,res,next)=>{
-    console.log("hit")
-    res.status(200)
-    res.json({A:'1'})
-}
 
 exports.getEventsById = getEventsById;
 exports.getEventsByUserId = getEventsByUserId;
+exports.getEvents = getEvents;
 exports.createEvent = createEvent;
 exports.deleteEvent = deleteEvent;

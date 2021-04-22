@@ -1,11 +1,21 @@
 import React from 'react'
-import './style.css'
+
 const EventDetails = (props) => {
+    console.log(props.event['event'])
     return (
-        <div className="xxx">   
-            <h2>{props.event.name}</h2>
-            <h3>{props.event.description}</h3>
+    <div className="container mt-4 d-flex justify-content-center">
+    <div className="card bg-light" style={{width:"600px"}}>
+
+        <img src={props.event['event'].image} className="card-img-top" width="40%" height="50%"/>
+
+        <div className="card-body">
+
+            <h2>{props.event['event'].name}</h2>
+            <p>{props.event['event'].description}</p>     
         </div>
+
+    </div>
+    </div>
     )
 }
 

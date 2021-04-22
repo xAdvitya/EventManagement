@@ -2,7 +2,7 @@ import React from 'react'
 
 const Selector = (props)=> {
     return (
-<div class="filter">
+<div className="filter">
     <select name="eventType" onChange={props.handelChange}>
     <option value="ALLEVENTS">All-Events</option>
     <option value="VERIFIED">Verified-Events</option>

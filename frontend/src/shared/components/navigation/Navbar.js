@@ -1,43 +1,73 @@
-import './Navbar.css'
-import React, { Component } from 'react';
+// import './Navbar.css'
+import {useContext} from 'react';
+import React,{Component} from 'react'
 import { NavLink } from 'react-router-dom';
-
-
+import {AuthContext} from '../../context/auth-context'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useHistory,
+    useLocation
+  } from "react-router-dom";
+  
 const navbarManage = () => {
     return (
-        <div>
-            <ul>
-            <li className="logo">
-                <a href="/">
-                 EVENT MANAGEMENT
-                 </a>
+            <ul className="nav navbar-light bg-secondary py-3">
+
+            <li className="logo nav-item">
+
+            <NavLink to='/' className="navbar-brand">
+            <h3>EVENT MANAGEMENT</h3> 
+            </NavLink>
              </li>
+
+            <li className="nav-item">
+            <Link className="nav-link"to="/manageevent/planevent">Plan event</Link>
+            </li>
+
+            <li className="nav-item">
+            <Link className="nav-link" to="/manageevent/allevents">All events</Link>
+            </li>
              
             </ul>
+    )
+}
+
+
+const NavbarDefault = () => {
+    const auth=useContext(AuthContext);
+    return (
+        <div>
+            <ul className="nav navbar-light bg-info py-3">
+
+            <li className="logo nav-item">
+                <Link className="navbar-brand" to="/">
+               <h3>EVENT MANAGEMENT</h3> 
+                </Link>
+            </li>
+            {!auth.isLoggedIn &&
+                <li className="nav-item">
+                    <NavLink className="nav-link text-white" to='/auth'>Authenticate</NavLink>
+                </li >
+                }
+                
+                {auth.isLoggedIn &&
+                <li className="nav-item">
+                    <NavLink className="nav-link text-white" to='/manageevent/planevent'>make Events</NavLink>
+                </li>}
+
+                {auth.isLoggedIn &&
+                <li className="nav-item">
+                    <NavLink className="nav-link text-white" to='/manageevent/allevents'>all Events</NavLink>
+                </li>}
+        </ul>
         </div>
     )
 }
 
-
-const navbarDefault = () => {
-    return (
-        <ul>
-                <li className="logout">
-                    <NavLink to='/auth'><button>Logout</button></NavLink>
-                </li >
-                
-                    <li className="logo">
-                        <a href="/">
-                            EVENT MANAGEMENT
-                        </a>
-                    </li>
-               
-                <li className="make_events">
-                    <NavLink to='/manageevent/planevent'><button>Make Events</button></NavLink>
-                </li>
-        </ul>
-    )
-}
 
 export class Navbar extends Component {
 
@@ -45,18 +75,16 @@ render() {
 
     let nav;
 
-    if(window.location.pathname === '/' || window.location.pathname ==='/:e/events'){
-        console.log(window.location.pathname)
-        nav = navbarDefault();
+    if(window.location.pathname === '/' || window.location.pathname ==='/:e/events'|| window.location.pathname ==='/auth'){
+        nav = <NavbarDefault/>
     }
     else{
-        console.log(window.location.pathname)   
-        nav = navbarManage();
+        nav = <NavbarDefault/>
     }
 
     return (
             <React.Fragment>
-                 {nav}
+                {nav}
             </React.Fragment>
            
         )
