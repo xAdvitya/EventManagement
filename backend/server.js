@@ -11,8 +11,12 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 // const connectDB = require('./config/db')
 const HttpError = require('./models/http-error');
-const cors = require('cors')
+const cors = require('cors');
+
+
+
 const app = express()
+app.use(cors());
 
 app.use((req,res,next)=>{
   res.setHeader('Access-Control-Allow-Origin','*')

@@ -60,7 +60,7 @@ const Details = () => {
         const sendRequest = async () => {
             try {
                 
-                const response = await fetch(`http://localhost:5000/api/events/${eventId}`); 
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/events/${eventId}`); 
 
               const responseData = await response.json();
               

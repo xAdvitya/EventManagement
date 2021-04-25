@@ -7,14 +7,13 @@ const AllEvents = (props) => {
 
   const auth = useContext(AuthContext)
   const userId = auth.userId;
-  // const userId='http://localhost:5000/api/events/user/60769bb551b95b12e865e913'
   console.log(userId)
   const [events,setevents] = useState([]);
   const [isLoading,setisLoading] = useState(true);
   
   const sendRequest = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/events/user/${userId}`); 
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/events/user/${userId}`); 
       // const response = await fetch(`${userId}`); 
 
       const responseData = await response.json();
@@ -41,7 +40,7 @@ useEffect(() => {
 
 const handleDelete = async(id)=>{
       try{
-      const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/events/${id}`, {
         method: 'DELETE',
         headers:{
           'Content-Type': 'application/json'

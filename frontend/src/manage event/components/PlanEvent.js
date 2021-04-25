@@ -13,7 +13,7 @@ const PlanEvent = () => {
         console.log(data.get('title'))
     try{
         console.log(data)
-       const response = await fetch('http://localhost:5000/api/events',{
+       const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/events',{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json'

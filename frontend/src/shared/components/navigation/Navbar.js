@@ -20,7 +20,7 @@ const navbarManage = () => {
             <li className="logo nav-item">
 
             <NavLink to='/' className="navbar-brand">
-            <h3>EVENT MANAGEMENT</h3> 
+            <h3>Event Fixer</h3> 
             </NavLink>
              </li>
 
@@ -45,7 +45,7 @@ const NavbarDefault = () => {
 
             <li className="logo nav-item">
                 <Link className="navbar-brand" to="/">
-               <h3>EVENT MANAGEMENT</h3> 
+               <h3>Event Fixer</h3> 
                 </Link>
             </li>
             {!auth.isLoggedIn &&

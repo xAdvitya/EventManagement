@@ -21,8 +21,10 @@ const Auth = () => {
         console.log(event.target)
         if(isLogin){
             try{
-                console.log(data)
-               const response = await fetch('http://localhost:5000/api/users/login',{
+                console.log(22222)
+                
+                console.log(process.env.REACT_APP_BACKEND_URL)
+               const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/users/login',{
                     method:'POST',
                     headers:{
                         'Content-Type': 'application/json'
@@ -49,7 +51,7 @@ const Auth = () => {
         else{
         try{
          
-           const response = await fetch('http://localhost:5000/api/users/signup',{
+           const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/users/signup',{
                 method:'POST',
                 headers:{
                     'Content-Type': 'application/json'

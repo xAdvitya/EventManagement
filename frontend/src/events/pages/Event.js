@@ -102,7 +102,7 @@ const Event = () => {
         }
 
         try {
-          const response = await fetch('http://localhost:5000/api/events');
+          const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/events');
     
           const responseData = await response.json();
           
