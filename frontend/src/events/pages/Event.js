@@ -73,12 +73,10 @@ import Navbar from '../../shared/components/navigation/Navbar';
 const Event = () => {
 
     const [eventType,seteventType] = useState('UNVERIFIED');
-    const [filteredEvents,setfilteredEvents] = useState();
     const [events,setevents] = useState([]);
     const [isLoading,setisLoading] = useState(true);
 
     const handelChange = (e)=>{
-        console.log(e.target.value)
         seteventType(e.target.value)
     }
 
@@ -126,30 +124,13 @@ const Event = () => {
       sendRequest();
     },[]);
   
-    // const currentEventType = this.state.eventType;
-//     if(isLoading === false){
-//         if(eventType === 'VERIFIED'){
-//             console.log("verified")
-//             console.log(events['events'])
-//             setevents(Array.isArray(events['events']) ? events['events'].filter(event =>event.verified === true) : []);
-//         }
-// }
-//     else if(eventType === 'UNVERIFIED'){
-//         events.filter(event =>event.verified === false);
-//     }
-//     else{
-//         console.log(events)
-//         // setfilteredEvents(events);
-//     }
 
 
     return (
         <React.Fragment>
             <Navbar/>
-           
-            {/* <Selector  handelChange={(e)=>handelChange(e)}/> */}
-            <div className="container">
-                {!isLoading &&
+            <div className="mr-4 container justify-content-start">
+                {!isLoading &&  
             <EventList events={events} />}
             </div>
         </React.Fragment>

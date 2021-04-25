@@ -7,16 +7,19 @@ const EventList=(props)=>{
     console.log(props.events['events'])
     console.log('wss')
 
-    if(props.length === 0){
+    if(props.events.length === undefined){
     return (
         <div>
-        <h2>no user found</h2>    
+        <h2>no Event found</h2>    
         </div>
         )
 
     }
+    console.log(`props.events.length`)
+    console.log(props.events.length )
     return(
-        <ul className="row">
+        
+        <ul className="row mr-2 justify-content-start">
                 {props.events['events'].map(event=>(
                     <SingleEvent
                     key={event.id}
@@ -29,6 +32,7 @@ const EventList=(props)=>{
                     />
                 ))}
         </ul>
+       
     );
 }
 
