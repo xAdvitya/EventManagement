@@ -1,4 +1,4 @@
-// import './Navbar.css'
+import './Navbar.css'
 import {useContext} from 'react';
 import React,{Component} from 'react'
 import { NavLink } from 'react-router-dom';
@@ -12,10 +12,11 @@ import {
     useHistory,
     useLocation
   } from "react-router-dom";
+
   
 const navbarManage = () => {
     return (
-            <ul className="nav navbar-light bg-secondary py-3">
+            <ul className="nav bg-warning py-3">
 
             <li className="logo nav-item">
 
@@ -36,34 +37,37 @@ const navbarManage = () => {
     )
 }
 
-
 const NavbarDefault = () => {
     const auth=useContext(AuthContext);
     return (
         <div>
-            <ul className="nav navbar-light bg-info py-3">
+            <ul className="nav">
 
-            <li className="logo nav-item">
+            <li className="logo nav-item ml-1 mt-2">
                 <Link className="navbar-brand" to="/">
-               <h3>Event Fixer</h3> 
+               <h1 className="text-light">Event Fixer</h1>
                 </Link>
             </li>
+
             {!auth.isLoggedIn &&
                 <li className="nav-item">
-                    <NavLink className="nav-link text-white" to='/auth'>Authenticate</NavLink>
-                </li >
+                    <NavLink className="nav-link text-white btn btn-danger btn-xm mt-3" to='/auth'>Authenticate</NavLink>
+                </li>
                 }
-                
+                <div className="d-flex justify-content-start mb-3">
+
                 {auth.isLoggedIn &&
                 <li className="nav-item">
-                    <NavLink className="nav-link text-white" to='/manageevent/planevent'>make Events</NavLink>
+                    <NavLink className="nav-link text-white btn btn-info btn-sm mt-3 ml-5 mr-3" to='/manageevent/planevent'>make Events</NavLink>
                 </li>}
 
                 {auth.isLoggedIn &&
                 <li className="nav-item">
-                    <NavLink className="nav-link text-white" to='/manageevent/allevents'>all Events</NavLink>
+                    <NavLink className="nav-link text-white btn btn-info btn-sm mt-3 mr-3" to='/manageevent/allevents'>all Events</NavLink>
                 </li>}
+            </div>
         </ul>
+        
         </div>
     )
 }

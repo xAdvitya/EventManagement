@@ -1,0 +1,27 @@
+.event-card{
+    background-color: #ff973663!important;
+}
+.card-event-head{
+   color: #2985c5!important;
+   text-decoration: underline;
+   font-family: 'Bebas Neue', cursive;
+}
+
+.card-event-body{
+    color:black !important;
+    font-family: 'Montserrat', sans-serif;
+}
+.card-head{
+    text-decoration: underline;
+    font-size: 50px;
+}
+.card-description{
+    font-size: 30px !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h4{
+    font-family: 'Antonio', sans-serif;
+    color: rgba(243, 23, 23, 0.904);
+    font-size: 20px;
+}

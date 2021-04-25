@@ -52,8 +52,7 @@ const handleDelete = async(id)=>{
           console.log(err);
         }
     }
- 
-  
+
 
     return (
       <React.Fragment>
@@ -65,11 +64,11 @@ const handleDelete = async(id)=>{
                 (events['events'].map(event=>{
                 return (
                 <div className="col-sm-12 col-md-6 col-lg-4 mb-4">
-                <div className="card" >
+                <div className="card event-card" >
 
-                    <img className="card-img-top" src={event.image} alt="Card image cap" />
+                    <img className="card-img-top" src="https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-1.jpg" alt="Card image cap" />
 
-                    <div className="card-body">
+                    <div className="card-body card-event-head">
                       <h3>{event.name}</h3>
                       {/* <h5>{event.description}</h5> */}
 

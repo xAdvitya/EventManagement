@@ -1,51 +1,23 @@
-/* ul {
-    width: 95%;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "logo logo"
-        "make-event logout"
-    ;
+.logo{
+    font-family: 'Pacifico', cursive;
 }
-li {
-    list-style: none;
-}
-li button {
-    background: #3C403D;
-    border: none;
-    color: #DADED4;
-    font-size: 18px;
-    border-radius: 3px;
-    padding: 10px 20px;
-    font-family: cursive;
-}
-li button:hover {
-    background-color: #616864;
-}
-.logo {
-    justify-self: center;
-    grid-area: logo;
-    font-size: 50px;
-    font-weight: 900;
-    color: #3C403D;
-    letter-spacing: -2px;
-}
-a { 
-    text-decoration: none;
+.text-light{
+    font-size: 32px;
 }
 
-.make_events {
-    grid-area:  make-event;
-    margin-top: 10px;
-    margin-left: 280px;
-    display: grid;
-    justify-content: end;
-    margin-right: 30%;
+.nav-link{
+    font-family: 'Barlow Condensed', sans-serif;
 }
-.logout {
-    grid-area: logout;
-    margin-top: 10px;
-    right: 25%;
-    position: relative;
-} */
+
+.nav{
+
+    background: url(../../../mount.svg) !important;
+    background-size: auto 1000px;
+    background-repeat:no-repeat;
+}
+
+label{
+    font-size: 20px;
+    color: #2985c5!important;
+    font-family: 'Antonio', sans-serif;
+}

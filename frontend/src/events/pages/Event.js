@@ -1,74 +1,6 @@
 import EventList from '../components/EventList'
 import React, { Component ,useEffect,useState} from 'react'
-import Selector from '../components/Selector';
 import Navbar from '../../shared/components/navigation/Navbar';
-
-// export class Event extends Component {
-
-// constructor(props) {
-//     super(props);
-//     this.state = {
-//         eventType:'ALLEVENTS',
-//         events:{},
-//     };
-//     this.handelChange = this.handelChange.bind(this)
-// }
-//     handelChange = (e)=>{
-//         this.setState({eventType:e.target.value})
-//     }
-
-//     filteredEvents=[]
-
-//     render() {
-
-//             const sendRequest = async () => {
-//               try {
-//                 const response = await fetch('http://localhost:5000/api/events');
-          
-//                 const responseData = await response.json();
-//                 this.setState({events:responseData})
-
-//                 if (!response.ok) {
-//                   console.log("error")
-//                 }
-          
-//               } catch (err) {
-//                 console.log(err);
-//               }
-//             };
-
-//             sendRequest();
-        
-//     const currentEventType = this.state.eventType;
-
-
-//     if(currentEventType === 'VERIFIED'){
-//         this.filteredEvents = this.state.events.filter(event =>event.verified === true);
-//     }
-//     else if(currentEventType === 'UNVERIFIED'){
-//         this.filteredEvents = this.state.events.filter(event =>event.verified === false);
-//     }
-//     else{
-//         this.filteredEvents = this.state.events;
-//         console.log(this.state.events)
-//         console.log("hhiiiiiiiiiiii")
-//     }
-
-//     return (
-//         <React.Fragment>
-//             <Navbar/>
-//             <Selector handelChange={this.handelChange}/>
-//             <div>
-//             <EventList events={this.state.events} />
-//             </div>
-//         </React.Fragment>
-//         )
-//     }
-// }
-
-// export default Event
-
-// import React from 'react'
 
 const Event = () => {
 
@@ -129,7 +61,7 @@ const Event = () => {
     return (
         <React.Fragment>
             <Navbar/>
-            <div className="mr-4 container justify-content-start">
+            <div className="container justify-content-start">
                 {!isLoading &&  
             <EventList events={events} />}
             </div>

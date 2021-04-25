@@ -3,6 +3,9 @@ body {
     margin: 0;
     overflow-y: scroll;
     overflow-x: hidden;
+    background: url(pattern.svg);
+    background-size: cover;
+    background-repeat:no-repeat;
 }
 
 a:link {
@@ -19,4 +22,20 @@ a:hover {
 
 a:active {
   text-decoration: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: rgb(201, 44, 44); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(218, 17, 17); 
 }

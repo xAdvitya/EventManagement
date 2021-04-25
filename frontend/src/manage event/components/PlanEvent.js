@@ -10,7 +10,7 @@ const PlanEvent = () => {
         
         event.preventDefault();
         const data = new FormData(event.target);
-        console.log(data.get('title'))
+        
     try{
         console.log(data)
        const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/events',{
@@ -24,8 +24,10 @@ const PlanEvent = () => {
                 creator:auth.userId
               })
         });
-            const responseData = await response.json();
-            console.log(responseData);
+        const responseData = await response.json();
+        document.getElementById("myForm").reset();
+
+        
     }
     catch(err){
         console.log(err);
@@ -35,8 +37,10 @@ const PlanEvent = () => {
     return (
         <React.Fragment>
         <Navbar/>
+
         <div className="container mt-4">
-            <form onSubmit={formSubmitHandler}>
+            <form id="myForm" onSubmit={formSubmitHandler} >
+                
                 <label htmlFor="1" className="form-label" >Event Name</label>
                 <input className="form-control" name="title" type="text" id="1"/>
 
@@ -52,6 +56,11 @@ const PlanEvent = () => {
                       submit
                   </button>
             </form>
+
+        <div className="mt-5 container justify-content-center">
+            <h4>verify your event at </h4>
+            <span class="badge badge-success">advityasharma9858@gmail.com</span>
+        </div>
         </div>
         </React.Fragment>
 

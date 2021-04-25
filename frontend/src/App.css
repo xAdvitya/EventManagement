@@ -1,0 +1,5 @@
+body{
+    background: url(pattern.svg);
+    background-size: cover;
+    background-repeat:no-repeat;
+}
