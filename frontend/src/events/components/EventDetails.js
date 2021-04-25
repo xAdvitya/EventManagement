@@ -6,7 +6,7 @@ const EventDetails = (props) => {
     <div className="container mt-4 d-flex justify-content-center">
     <div className="card bg-light" style={{width:"600px"}}>
 
-        <img src={props.event['event'].image} className="card-img-top" width="40%" height="50%"/>
+        {/* <img src={props.event['event'].image} className="card-img-top" width="40%" height="50%"/> */}
 
         <div className="card-body">
 

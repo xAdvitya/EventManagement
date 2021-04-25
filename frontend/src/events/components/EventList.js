@@ -3,11 +3,8 @@ import SingleEvent from './SingleEvent';
 
 
 const EventList=(props)=>{
-
-    console.log(props.events['events'])
-    console.log('wss')
-
-    if(props.events.length === undefined){
+    
+    if(props.events.length === 0){
     return (
         <div>
         <h2>no Event found</h2>    

@@ -2,15 +2,11 @@ const HttpError = require('../models/http-error');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../models/user');
 
-DUMMY_USERS = [{
-    name:'bikaraj',
-    email:'bika@remail.com',
-    password:'kk'
-}]
 
 const signup = async (req,res,next)=>{
 
     const {name,email,password} = req.body;
+    console.log(req.image)
     let existingUser;
     try{
         existingUser = await User.findOne({email:email})

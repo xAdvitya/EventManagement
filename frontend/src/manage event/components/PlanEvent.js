@@ -1,8 +1,6 @@
 import React ,{useContext}from 'react'
 import Navbar from '../../shared/components/navigation/Navbar'
 import { AuthContext } from '../../shared/context/auth-context'
-import SideBar from './SideBar'
-// import ManageEvents from '../pages/ManageEvents'
 
 const PlanEvent = () => {
 
@@ -44,9 +42,9 @@ const PlanEvent = () => {
 
                   <label htmlFor="2" className="form-label" >Event Description</label>
                   <textarea name="description" className="form-control" id="2"></textarea>
-
+{/* 
                   <label htmlFor="3" className="form-label">Add Pictures</label>
-                  <input name="images" className="form-control"type="file" multiple id="3"/>
+                  <input name="images" className="form-control"type="file" multiple id="3"/> */}
 
                   {/* <label htmlFor="last_date">Event Time</label>
                   <input name="date" type="date" id="last_date"/> */}
